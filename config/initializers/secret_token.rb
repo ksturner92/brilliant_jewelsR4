@@ -9,4 +9,19 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
+require 'securerandom'
+
+def secure_token
+	token_file = Rails.root.join('.secret')
+	if File.exist?(token_file)
+		#Use the exisiting token.
+		File.read(token_file).chomp
+	else
+		#Generate a new token and store it in token_file.
+		token = SecureRandom.hex(64)
+		File.write(token_file, token)
+		token
+	end
+end 
+
 BrilliantJewelsr4::Application.config.secret_key_base = 'f70962bdc2eabfc86595cff5658cd54bbf1abb41bae2dbde5b41ddb8813d04ab35974de8b425e7b3e1fefdf3c6b0a7f01ad2a2665b0ac4aec99f8c65badb5e2d'

@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>BrilliantJewelsr4</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= yield %>
-
-</body>
+	<head>
+  		<title>Jewels Nocera | <%=yield(:title) %></title>
+  		<%= stylesheet_link_tag "application", media: "all",
+  											"data-turbolinks-track" => true %>
+ 		<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  		<%= csrf_meta_tags %>
+  		<script data-src="holder.js"></script>
+  		<%= render 'layouts/shim' %>
+	</head>
+	<body>
+		<%= render 'layouts/header' %>
+		<%= render 'layouts/nav' %>
+		<div class="container">
+			<%= yield %>
+			<%= render 'layouts/footer' %>
+		</div>
+	</body>
 </html>

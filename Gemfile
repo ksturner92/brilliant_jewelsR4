@@ -2,9 +2,18 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
+gem 'bootstrap-sass'
+gem 'holder_rails'
+gem 'rmagick'
+gem 'pg'
+gem 'carrierwave'
 
 group :development do
-	gem 'sqlite3'
+	gem 'rspec-rails'
+	gem 'guard-rspec'
+	gem 'spork-rails', github: 'sporkrb/spork-rails'
+	gem 'guard-spork'
+	gem 'childprocess'
 end
 
 gem 'sass-rails'
@@ -19,7 +28,6 @@ gem 'turbolinks'
 gem 'jbuilder'
 
 group :production do 
-	gem 'pg'
 	gem 'rails_12factor'
 end
 
@@ -28,6 +36,11 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+group :test do 
+	gem 'selenium-webdriver'
+	gem 'capybara'
+	gem 'growl'
+end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
